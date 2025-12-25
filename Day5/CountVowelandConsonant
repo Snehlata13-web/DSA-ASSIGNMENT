@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+/*
+    Problem : Count Vowel and Consonant
+    Logic : The algorithm iterates through each character in the string, checking if it is an alphabetic character. If it is, it determines whether it is a vowel or a consonant and increments the respective counters.
+    Time Complexity : O(n)
+    Space Complexity : O(1)
+    Submission Link :
+*/
+
+int countVowelAndConsonant(string str, int vowelCount, int consonantCount) {
+    vowelCount = 0;
+    consonantCount = 0;
+    for (char ch : str) {
+        if (isalpha(ch)) {
+            char lowerCh = tolower(ch);
+            if (lowerCh == 'a' || lowerCh == 'e' || lowerCh == 'i' || lowerCh == 'o' || lowerCh == 'u') {
+                vowelCount++;
+            } else {
+                consonantCount++;
+            }
+        }
+    }
+    return vowelCount + consonantCount;
+}
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    string str = "Hello World!";
+    int vowelCount = 0, consonantCount = 0;
+    int totalCount = countVowelAndConsonant(str, vowelCount, consonantCount);
+    cout << "Total Vowels and Consonants: " << totalCount << endl;
+    cout << "Vowels: " << vowelCount << ", Consonants: " << consonantCount << endl;
+    return 0;
+}
